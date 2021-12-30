@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+body,html,.App,#id_sideBar,#root,.App>div,.App>div>div{
+  height: 100%;
+}
