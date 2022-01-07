@@ -7,17 +7,21 @@ import { Row, Col } from 'react-bootstrap';
 
 
 export const ToDo = function (props) {
-    const [list, setList] = useState([
-        {
-            checkbox: false,
-            text: "Task 1"
-        },
-        {
-            checkbox: false,
-            text: "Practice React"
 
-        }
+    const [list, setList] = useState([
+
     ]);
+
+    useEffect(() => {
+
+        fetch('http://localhost:4000/getToDoList')
+            .then(res => res.json())
+            .then(res => setList(res))
+            .catch(err => console.error(err));
+
+    }, [])
+
+
     const changeCheckbox = (index, e) => {
         let arr = [...list];
         arr[index].checkbox = e.target.checked;
